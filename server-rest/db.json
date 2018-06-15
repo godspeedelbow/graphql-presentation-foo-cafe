@@ -1,0 +1,154 @@
+{
+  "technologies": [{
+      "id": "immutable-js",
+      "name": "immutable-js",
+      "title": "ImmutableJS"
+    },
+    {
+      "id": "redux",
+      "name": "redux",
+      "title": "Redux"
+    },
+    {
+      "id": "relay",
+      "name": "relay",
+      "title": "Relay"
+    },
+    {
+      "id": "graphql",
+      "name": "graphql",
+      "title": "GraphQL"
+    },
+    {
+      "id": "react",
+      "name": "react",
+      "title": "React"
+    },
+    {
+      "id": "hoc",
+      "name": "hoc",
+      "title": "HoC"
+    },
+    {
+      "id": "recompose",
+      "name": "recompose",
+      "title": "Recompose"
+    }
+  ],
+  "events": [{
+      "id": "render-2016",
+      "name": "render-2016",
+      "title": "Render 2016",
+      "website": "http://2016.render-conf.com/",
+      "logo": "http://2016.render-conf.com/img/Render_logo_Colour.png"
+    },
+    {
+      "id": "react-europe-2015",
+      "name": "react-europe-2015",
+      "title": "React Europe 2015",
+      "website": "https://2015.react-europe.org/",
+      "logo": "https://2015.react-europe.org/images/reacteurope.png"
+    },
+    {
+      "id": "react-europe-2016",
+      "name": "react-europe-2016",
+      "title": "React Europe 2016",
+      "website": "https://2016.react-europe.org/",
+      "logo": "https://2016.react-europe.org/images/reacteurope%20.png"
+    },
+    {
+      "id": "react-europe-2017",
+      "name": "react-europe-2017",
+      "title": "React Europe 2017",
+      "website": "https://2017.react-europe.org/",
+      "logo": "https://www.react-europe.org/images/reacteurope.png"
+    },
+    {
+      "id": "phoenix-react-js",
+      "name": "phoenix-react-js",
+      "title": "Phoenix ReactJS"
+    }
+  ],
+  "speakers": [{
+      "id": "lee-byron",
+      "name": "lee-byron",
+      "fullName": "Lee Byron",
+      "image": "https://pbs.twimg.com/profile_images/826651806696501248/TOro78hz_400x400.jpg",
+      "twitter": "https://twitter.com/leeb",
+      "github": "https://github.com/leeb"
+    },
+    {
+      "id": "dan-abramov",
+      "name": "dan-abramov",
+      "fullName": "Dan Abramov",
+      "image": "https://pbs.twimg.com/profile_images/906557353549598720/oapgW_Fp_400x400.jpg",
+      "twitter": "https://twitter.com/dan_abramov",
+      "github": "https://github.com/gaearon"
+    },
+    {
+      "id": "michael-jackson",
+      "name": "michael-jackson",
+      "fullName": "Michael Jackson",
+      "image": "https://avatars1.githubusercontent.com/u/92839?s=400&v=4",
+      "twitter": "https://twitter.com/mjackson",
+      "github": "https://github.com/mjackson"
+    }
+  ],
+  "videos": [{
+      "id": "michael-jackson-never-write-another-hoc",
+      "name": "michael-jackson-never-write-another-hoc",
+      "speaker": "michael-jackson",
+      "title": "Never Write Another Hoc",
+      "date": "Sep 17, 2017",
+      "event": "phoenix-react-js",
+      "source": "https://www.youtube.com/watch?v=BcVAq3YFiuc",
+      "duration": "51:06",
+      "technologies": ["hoc", "recompose", "react"]
+    },
+    {
+      "id": "lee-byron-relay-modern",
+      "name": "lee-byron-relay-modern",
+      "speaker": "lee-byron",
+      "title": "Relay Modern",
+      "date": "24 May, 2017",
+      "event": "react-europe-2017",
+      "source": "https://www.youtube.com/watch?v=OdsMz7h_Li0",
+      "duration": "27:32",
+      "technologies": ["relay", "graphql", "react"]
+    },
+    {
+      "id": "dan-abramov-the-redux-journey",
+      "name": "dan-abramov-the-redux-journey",
+      "speaker": "dan-abramov",
+      "title": "The Redux Journey",
+      "date": "Jun 4, 2016",
+      "event": "react-europe-2016",
+      "source": "https://www.youtube.com/watch?v=uvAXVMwHJXU",
+      "duration": "25:56",
+      "technologies": ["redux", "react"]
+    },
+    {
+      "id": "lee-byron-immutable-user-interfaces",
+      "name": "lee-byron-immutable-user-interfaces",
+      "speaker": "lee-byron",
+      "title": "Immutable User Interfaces",
+      "description": "One of the greatest challenges of building a rich UI is keeping track of all that is changing: incoming touch and mouse events, new data from your servers, animations, and more. Here we propose a new way to tackle this challenge that is as old as computing itself: don’t let anything change in the first place.\nCome learn about how to build rich and highly performant UIs without losing your sanity by leveraging immutable data and the optimization techniques it enables.",
+      "date": "22 April, 2016",
+      "event": "render-2016",
+      "source": "https://vimeo.com/166790294",
+      "duration": "29:34",
+      "technologies": ["immutable-js", "react"]
+    },
+    {
+      "id": "dan-abramov-live-react-hot-reloading-with-time-travel",
+      "name": "dan-abramov-live-react-hot-reloading-with-time-travel",
+      "speaker": "dan-abramov",
+      "title": "Live React: Hot Reloading with Time Travel",
+      "date": "Jul 5, 2015",
+      "event": "react-europe-2015",
+      "source": "https://www.youtube.com/watch?v=xsSnOQynTHs",
+      "duration": "30:40",
+      "technologies": ["redux", "react"]
+    }
+  ]
+}
