@@ -6,6 +6,7 @@
   "scripts": {
     "start": "npm-run-all --parallel server-rest client",
     "server-rest": "cd server-rest && yarn start",
+    "server-graphql": "cd server-graphql && yarn start",
     "client": "cd client && yarn start"
   },
   "keywords": [],
