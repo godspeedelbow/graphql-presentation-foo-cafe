@@ -1,8 +1,8 @@
-import { compose, withProps } from 'recompose';
-
+import React from 'react';
 import gql from 'graphql-tag';
+import { Query } from 'react-apollo';
 
-import { graphql } from 'react-apollo';
+import Loader from './loader';
 
 const query = gql`
   query {
@@ -30,17 +30,17 @@ const query = gql`
   }
 `;
 
-const withVideosGraphQL = compose(
-  graphql(query),
-  withProps(props => {
-    const {
-      data: { videos = [] }
-    } = props;
+const withVideosGraphQL = Component => () => (
+  <Query query={query}>
+    {({ loading, error, data }) => {
+      if (loading) return <Loader />;
+      if (error) return <p>Error :(</p>;
 
-    return {
-      videos
-    };
-  })
+      const { videos = [] } = data;
+
+      return <Component videos={videos} />;
+    }}
+  </Query>
 );
 
 export default withVideosGraphQL;

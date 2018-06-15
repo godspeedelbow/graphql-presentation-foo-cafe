@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index"
+    "start": "nodemon index"
   },
   "keywords": [],
   "author": "",
@@ -15,6 +15,7 @@
     "express-graphql": "^0.6.12",
     "graphql": "^0.13.2",
     "graphql-tools": "^3.0.2",
-    "node-fetch": "^2.1.2"
+    "node-fetch": "^2.1.2",
+    "nodemon": "^1.17.5"
   }
 }

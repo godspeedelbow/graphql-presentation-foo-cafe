@@ -1,4 +1,12 @@
-import { compose, withState, lifecycle } from 'recompose';
+import {
+  compose,
+  withState,
+  lifecycle,
+  branch,
+  renderComponent
+} from 'recompose';
+
+import Loader from './loader';
 
 const withVideosRest = compose(
   withState('videos', 'setVideos', []),
@@ -27,7 +35,8 @@ const withVideosRest = compose(
 
       this.props.setVideos(populatedVideos);
     }
-  })
+  }),
+  branch(({ videos = [] }) => !videos.length, renderComponent(Loader))
 );
 
 export default withVideosRest;
