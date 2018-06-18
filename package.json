@@ -4,10 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npm-run-all --parallel server-rest client",
+    "start-client": "cd client && yarn start",
+    "start-server": "npm-run-all --parallel server-graphql server-rest",
+    "start-prisma": "npm-run-all --parallel server-prisma",
+
     "server-rest": "cd server-rest && yarn start",
     "server-graphql": "cd server-graphql && yarn start",
-    "client": "cd client && yarn start"
+    "server-prisma": "cd server-prisma && yarn dev"
   },
   "keywords": [],
   "author": "",

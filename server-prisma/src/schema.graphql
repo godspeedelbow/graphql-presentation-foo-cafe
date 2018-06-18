@@ -1,0 +1,5 @@
+# import Post from "./generated/prisma.graphql"
+
+type Query {
+  videos: [Video!]!
+}

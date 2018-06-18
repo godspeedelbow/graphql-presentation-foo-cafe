@@ -1,0 +1,22 @@
+{
+  "name": "server-prisma",
+  "scripts": {
+    "start": "nodemon -e js,graphql -x node -r dotenv/config src/index.js",
+    "debug": "nodemon -e js,graphql -x node --inspect -r dotenv/config src/index.js",
+    "playground": "graphql playground --port 4001",
+    "dev": "npm-run-all --parallel start playground"
+  },
+  "dependencies": {
+    "bcryptjs": "2.4.3",
+    "graphql-yoga": "1.14.8",
+    "jsonwebtoken": "8.3.0",
+    "prisma-binding": "2.1.0"
+  },
+  "devDependencies": {
+    "dotenv": "6.0.0",
+    "graphql-cli": "2.16.3",
+    "nodemon": "1.17.5",
+    "npm-run-all": "4.1.3",
+    "prisma": "1.9.0"
+  }
+}

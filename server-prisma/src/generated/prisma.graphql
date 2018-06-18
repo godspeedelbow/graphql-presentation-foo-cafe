@@ -1,0 +1,1364 @@
+# source: https://eu1.prisma.sh/eelke-boezeman-014aeb/server-prisma/dev
+# timestamp: Mon Jun 18 2018 10:00:18 GMT+0200 (CEST)
+
+type AggregateEvent {
+  count: Int!
+}
+
+type AggregateSpeaker {
+  count: Int!
+}
+
+type AggregateTechnology {
+  count: Int!
+}
+
+type AggregateVideo {
+  count: Int!
+}
+
+type BatchPayload {
+  """The number of nodes that have been affected by the Batch operation."""
+  count: Long!
+}
+
+type Event {
+  name: String!
+  title: String!
+  website: String
+  logo: String
+}
+
+"""A connection to a list of items."""
+type EventConnection {
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """A list of edges."""
+  edges: [EventEdge]!
+  aggregate: AggregateEvent!
+}
+
+input EventCreateInput {
+  name: String!
+  title: String!
+  website: String
+  logo: String
+}
+
+input EventCreateOneInput {
+  create: EventCreateInput
+  connect: EventWhereUniqueInput
+}
+
+"""An edge in a connection."""
+type EventEdge {
+  """The item at the end of the edge."""
+  node: Event!
+
+  """A cursor for use in pagination."""
+  cursor: String!
+}
+
+enum EventOrderByInput {
+  name_ASC
+  name_DESC
+  title_ASC
+  title_DESC
+  website_ASC
+  website_DESC
+  logo_ASC
+  logo_DESC
+  id_ASC
+  id_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  createdAt_ASC
+  createdAt_DESC
+}
+
+type EventPreviousValues {
+  name: String!
+  title: String!
+  website: String
+  logo: String
+}
+
+type EventSubscriptionPayload {
+  mutation: MutationType!
+  node: Event
+  updatedFields: [String!]
+  previousValues: EventPreviousValues
+}
+
+input EventSubscriptionWhereInput {
+  """Logical AND on all given filters."""
+  AND: [EventSubscriptionWhereInput!]
+
+  """Logical OR on all given filters."""
+  OR: [EventSubscriptionWhereInput!]
+
+  """Logical NOT on all given filters combined by AND."""
+  NOT: [EventSubscriptionWhereInput!]
+
+  """
+  The subscription event gets dispatched when it's listed in mutation_in
+  """
+  mutation_in: [MutationType!]
+
+  """
+  The subscription event gets only dispatched when one of the updated fields names is included in this list
+  """
+  updatedFields_contains: String
+
+  """
+  The subscription event gets only dispatched when all of the field names included in this list have been updated
+  """
+  updatedFields_contains_every: [String!]
+
+  """
+  The subscription event gets only dispatched when some of the field names included in this list have been updated
+  """
+  updatedFields_contains_some: [String!]
+  node: EventWhereInput
+}
+
+input EventUpdateDataInput {
+  name: String
+  title: String
+  website: String
+  logo: String
+}
+
+input EventUpdateInput {
+  name: String
+  title: String
+  website: String
+  logo: String
+}
+
+input EventUpdateOneInput {
+  create: EventCreateInput
+  connect: EventWhereUniqueInput
+  delete: Boolean
+  update: EventUpdateDataInput
+  upsert: EventUpsertNestedInput
+}
+
+input EventUpsertNestedInput {
+  update: EventUpdateDataInput!
+  create: EventCreateInput!
+}
+
+input EventWhereInput {
+  """Logical AND on all given filters."""
+  AND: [EventWhereInput!]
+
+  """Logical OR on all given filters."""
+  OR: [EventWhereInput!]
+
+  """Logical NOT on all given filters combined by AND."""
+  NOT: [EventWhereInput!]
+  name: String
+
+  """All values that are not equal to given value."""
+  name_not: String
+
+  """All values that are contained in given list."""
+  name_in: [String!]
+
+  """All values that are not contained in given list."""
+  name_not_in: [String!]
+
+  """All values less than the given value."""
+  name_lt: String
+
+  """All values less than or equal the given value."""
+  name_lte: String
+
+  """All values greater than the given value."""
+  name_gt: String
+
+  """All values greater than or equal the given value."""
+  name_gte: String
+
+  """All values containing the given string."""
+  name_contains: String
+
+  """All values not containing the given string."""
+  name_not_contains: String
+
+  """All values starting with the given string."""
+  name_starts_with: String
+
+  """All values not starting with the given string."""
+  name_not_starts_with: String
+
+  """All values ending with the given string."""
+  name_ends_with: String
+
+  """All values not ending with the given string."""
+  name_not_ends_with: String
+  title: String
+
+  """All values that are not equal to given value."""
+  title_not: String
+
+  """All values that are contained in given list."""
+  title_in: [String!]
+
+  """All values that are not contained in given list."""
+  title_not_in: [String!]
+
+  """All values less than the given value."""
+  title_lt: String
+
+  """All values less than or equal the given value."""
+  title_lte: String
+
+  """All values greater than the given value."""
+  title_gt: String
+
+  """All values greater than or equal the given value."""
+  title_gte: String
+
+  """All values containing the given string."""
+  title_contains: String
+
+  """All values not containing the given string."""
+  title_not_contains: String
+
+  """All values starting with the given string."""
+  title_starts_with: String
+
+  """All values not starting with the given string."""
+  title_not_starts_with: String
+
+  """All values ending with the given string."""
+  title_ends_with: String
+
+  """All values not ending with the given string."""
+  title_not_ends_with: String
+  website: String
+
+  """All values that are not equal to given value."""
+  website_not: String
+
+  """All values that are contained in given list."""
+  website_in: [String!]
+
+  """All values that are not contained in given list."""
+  website_not_in: [String!]
+
+  """All values less than the given value."""
+  website_lt: String
+
+  """All values less than or equal the given value."""
+  website_lte: String
+
+  """All values greater than the given value."""
+  website_gt: String
+
+  """All values greater than or equal the given value."""
+  website_gte: String
+
+  """All values containing the given string."""
+  website_contains: String
+
+  """All values not containing the given string."""
+  website_not_contains: String
+
+  """All values starting with the given string."""
+  website_starts_with: String
+
+  """All values not starting with the given string."""
+  website_not_starts_with: String
+
+  """All values ending with the given string."""
+  website_ends_with: String
+
+  """All values not ending with the given string."""
+  website_not_ends_with: String
+  logo: String
+
+  """All values that are not equal to given value."""
+  logo_not: String
+
+  """All values that are contained in given list."""
+  logo_in: [String!]
+
+  """All values that are not contained in given list."""
+  logo_not_in: [String!]
+
+  """All values less than the given value."""
+  logo_lt: String
+
+  """All values less than or equal the given value."""
+  logo_lte: String
+
+  """All values greater than the given value."""
+  logo_gt: String
+
+  """All values greater than or equal the given value."""
+  logo_gte: String
+
+  """All values containing the given string."""
+  logo_contains: String
+
+  """All values not containing the given string."""
+  logo_not_contains: String
+
+  """All values starting with the given string."""
+  logo_starts_with: String
+
+  """All values not starting with the given string."""
+  logo_not_starts_with: String
+
+  """All values ending with the given string."""
+  logo_ends_with: String
+
+  """All values not ending with the given string."""
+  logo_not_ends_with: String
+}
+
+input EventWhereUniqueInput {
+  name: String
+}
+
+"""
+The `Long` scalar type represents non-fractional signed whole numeric values.
+Long can represent values between -(2^63) and 2^63 - 1.
+"""
+scalar Long
+
+type Mutation {
+  createVideo(data: VideoCreateInput!): Video!
+  createSpeaker(data: SpeakerCreateInput!): Speaker!
+  createTechnology(data: TechnologyCreateInput!): Technology!
+  createEvent(data: EventCreateInput!): Event!
+  updateVideo(data: VideoUpdateInput!, where: VideoWhereUniqueInput!): Video
+  updateSpeaker(data: SpeakerUpdateInput!, where: SpeakerWhereUniqueInput!): Speaker
+  updateTechnology(data: TechnologyUpdateInput!, where: TechnologyWhereUniqueInput!): Technology
+  updateEvent(data: EventUpdateInput!, where: EventWhereUniqueInput!): Event
+  deleteVideo(where: VideoWhereUniqueInput!): Video
+  deleteSpeaker(where: SpeakerWhereUniqueInput!): Speaker
+  deleteTechnology(where: TechnologyWhereUniqueInput!): Technology
+  deleteEvent(where: EventWhereUniqueInput!): Event
+  upsertVideo(where: VideoWhereUniqueInput!, create: VideoCreateInput!, update: VideoUpdateInput!): Video!
+  upsertSpeaker(where: SpeakerWhereUniqueInput!, create: SpeakerCreateInput!, update: SpeakerUpdateInput!): Speaker!
+  upsertTechnology(where: TechnologyWhereUniqueInput!, create: TechnologyCreateInput!, update: TechnologyUpdateInput!): Technology!
+  upsertEvent(where: EventWhereUniqueInput!, create: EventCreateInput!, update: EventUpdateInput!): Event!
+  updateManyVideos(data: VideoUpdateInput!, where: VideoWhereInput): BatchPayload!
+  updateManySpeakers(data: SpeakerUpdateInput!, where: SpeakerWhereInput): BatchPayload!
+  updateManyTechnologies(data: TechnologyUpdateInput!, where: TechnologyWhereInput): BatchPayload!
+  updateManyEvents(data: EventUpdateInput!, where: EventWhereInput): BatchPayload!
+  deleteManyVideos(where: VideoWhereInput): BatchPayload!
+  deleteManySpeakers(where: SpeakerWhereInput): BatchPayload!
+  deleteManyTechnologies(where: TechnologyWhereInput): BatchPayload!
+  deleteManyEvents(where: EventWhereInput): BatchPayload!
+}
+
+enum MutationType {
+  CREATED
+  UPDATED
+  DELETED
+}
+
+"""An object with an ID"""
+interface Node {
+  """The id of the object."""
+  id: ID!
+}
+
+"""Information about pagination in a connection."""
+type PageInfo {
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
+
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+}
+
+type Query {
+  videos(where: VideoWhereInput, orderBy: VideoOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Video]!
+  speakers(where: SpeakerWhereInput, orderBy: SpeakerOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Speaker]!
+  technologies(where: TechnologyWhereInput, orderBy: TechnologyOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Technology]!
+  events(where: EventWhereInput, orderBy: EventOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Event]!
+  video(where: VideoWhereUniqueInput!): Video
+  speaker(where: SpeakerWhereUniqueInput!): Speaker
+  technology(where: TechnologyWhereUniqueInput!): Technology
+  event(where: EventWhereUniqueInput!): Event
+  videosConnection(where: VideoWhereInput, orderBy: VideoOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): VideoConnection!
+  speakersConnection(where: SpeakerWhereInput, orderBy: SpeakerOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): SpeakerConnection!
+  technologiesConnection(where: TechnologyWhereInput, orderBy: TechnologyOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): TechnologyConnection!
+  eventsConnection(where: EventWhereInput, orderBy: EventOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): EventConnection!
+
+  """Fetches an object given its ID"""
+  node(
+    """The ID of an object"""
+    id: ID!
+  ): Node
+}
+
+type Speaker {
+  name: String!
+  fullName: String
+  image: String
+  twitter: String
+  github: String
+}
+
+"""A connection to a list of items."""
+type SpeakerConnection {
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """A list of edges."""
+  edges: [SpeakerEdge]!
+  aggregate: AggregateSpeaker!
+}
+
+input SpeakerCreateInput {
+  name: String!
+  fullName: String
+  image: String
+  twitter: String
+  github: String
+}
+
+input SpeakerCreateOneInput {
+  create: SpeakerCreateInput
+  connect: SpeakerWhereUniqueInput
+}
+
+"""An edge in a connection."""
+type SpeakerEdge {
+  """The item at the end of the edge."""
+  node: Speaker!
+
+  """A cursor for use in pagination."""
+  cursor: String!
+}
+
+enum SpeakerOrderByInput {
+  name_ASC
+  name_DESC
+  fullName_ASC
+  fullName_DESC
+  image_ASC
+  image_DESC
+  twitter_ASC
+  twitter_DESC
+  github_ASC
+  github_DESC
+  id_ASC
+  id_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  createdAt_ASC
+  createdAt_DESC
+}
+
+type SpeakerPreviousValues {
+  name: String!
+  fullName: String
+  image: String
+  twitter: String
+  github: String
+}
+
+type SpeakerSubscriptionPayload {
+  mutation: MutationType!
+  node: Speaker
+  updatedFields: [String!]
+  previousValues: SpeakerPreviousValues
+}
+
+input SpeakerSubscriptionWhereInput {
+  """Logical AND on all given filters."""
+  AND: [SpeakerSubscriptionWhereInput!]
+
+  """Logical OR on all given filters."""
+  OR: [SpeakerSubscriptionWhereInput!]
+
+  """Logical NOT on all given filters combined by AND."""
+  NOT: [SpeakerSubscriptionWhereInput!]
+
+  """
+  The subscription event gets dispatched when it's listed in mutation_in
+  """
+  mutation_in: [MutationType!]
+
+  """
+  The subscription event gets only dispatched when one of the updated fields names is included in this list
+  """
+  updatedFields_contains: String
+
+  """
+  The subscription event gets only dispatched when all of the field names included in this list have been updated
+  """
+  updatedFields_contains_every: [String!]
+
+  """
+  The subscription event gets only dispatched when some of the field names included in this list have been updated
+  """
+  updatedFields_contains_some: [String!]
+  node: SpeakerWhereInput
+}
+
+input SpeakerUpdateDataInput {
+  name: String
+  fullName: String
+  image: String
+  twitter: String
+  github: String
+}
+
+input SpeakerUpdateInput {
+  name: String
+  fullName: String
+  image: String
+  twitter: String
+  github: String
+}
+
+input SpeakerUpdateOneInput {
+  create: SpeakerCreateInput
+  connect: SpeakerWhereUniqueInput
+  delete: Boolean
+  update: SpeakerUpdateDataInput
+  upsert: SpeakerUpsertNestedInput
+}
+
+input SpeakerUpsertNestedInput {
+  update: SpeakerUpdateDataInput!
+  create: SpeakerCreateInput!
+}
+
+input SpeakerWhereInput {
+  """Logical AND on all given filters."""
+  AND: [SpeakerWhereInput!]
+
+  """Logical OR on all given filters."""
+  OR: [SpeakerWhereInput!]
+
+  """Logical NOT on all given filters combined by AND."""
+  NOT: [SpeakerWhereInput!]
+  name: String
+
+  """All values that are not equal to given value."""
+  name_not: String
+
+  """All values that are contained in given list."""
+  name_in: [String!]
+
+  """All values that are not contained in given list."""
+  name_not_in: [String!]
+
+  """All values less than the given value."""
+  name_lt: String
+
+  """All values less than or equal the given value."""
+  name_lte: String
+
+  """All values greater than the given value."""
+  name_gt: String
+
+  """All values greater than or equal the given value."""
+  name_gte: String
+
+  """All values containing the given string."""
+  name_contains: String
+
+  """All values not containing the given string."""
+  name_not_contains: String
+
+  """All values starting with the given string."""
+  name_starts_with: String
+
+  """All values not starting with the given string."""
+  name_not_starts_with: String
+
+  """All values ending with the given string."""
+  name_ends_with: String
+
+  """All values not ending with the given string."""
+  name_not_ends_with: String
+  fullName: String
+
+  """All values that are not equal to given value."""
+  fullName_not: String
+
+  """All values that are contained in given list."""
+  fullName_in: [String!]
+
+  """All values that are not contained in given list."""
+  fullName_not_in: [String!]
+
+  """All values less than the given value."""
+  fullName_lt: String
+
+  """All values less than or equal the given value."""
+  fullName_lte: String
+
+  """All values greater than the given value."""
+  fullName_gt: String
+
+  """All values greater than or equal the given value."""
+  fullName_gte: String
+
+  """All values containing the given string."""
+  fullName_contains: String
+
+  """All values not containing the given string."""
+  fullName_not_contains: String
+
+  """All values starting with the given string."""
+  fullName_starts_with: String
+
+  """All values not starting with the given string."""
+  fullName_not_starts_with: String
+
+  """All values ending with the given string."""
+  fullName_ends_with: String
+
+  """All values not ending with the given string."""
+  fullName_not_ends_with: String
+  image: String
+
+  """All values that are not equal to given value."""
+  image_not: String
+
+  """All values that are contained in given list."""
+  image_in: [String!]
+
+  """All values that are not contained in given list."""
+  image_not_in: [String!]
+
+  """All values less than the given value."""
+  image_lt: String
+
+  """All values less than or equal the given value."""
+  image_lte: String
+
+  """All values greater than the given value."""
+  image_gt: String
+
+  """All values greater than or equal the given value."""
+  image_gte: String
+
+  """All values containing the given string."""
+  image_contains: String
+
+  """All values not containing the given string."""
+  image_not_contains: String
+
+  """All values starting with the given string."""
+  image_starts_with: String
+
+  """All values not starting with the given string."""
+  image_not_starts_with: String
+
+  """All values ending with the given string."""
+  image_ends_with: String
+
+  """All values not ending with the given string."""
+  image_not_ends_with: String
+  twitter: String
+
+  """All values that are not equal to given value."""
+  twitter_not: String
+
+  """All values that are contained in given list."""
+  twitter_in: [String!]
+
+  """All values that are not contained in given list."""
+  twitter_not_in: [String!]
+
+  """All values less than the given value."""
+  twitter_lt: String
+
+  """All values less than or equal the given value."""
+  twitter_lte: String
+
+  """All values greater than the given value."""
+  twitter_gt: String
+
+  """All values greater than or equal the given value."""
+  twitter_gte: String
+
+  """All values containing the given string."""
+  twitter_contains: String
+
+  """All values not containing the given string."""
+  twitter_not_contains: String
+
+  """All values starting with the given string."""
+  twitter_starts_with: String
+
+  """All values not starting with the given string."""
+  twitter_not_starts_with: String
+
+  """All values ending with the given string."""
+  twitter_ends_with: String
+
+  """All values not ending with the given string."""
+  twitter_not_ends_with: String
+  github: String
+
+  """All values that are not equal to given value."""
+  github_not: String
+
+  """All values that are contained in given list."""
+  github_in: [String!]
+
+  """All values that are not contained in given list."""
+  github_not_in: [String!]
+
+  """All values less than the given value."""
+  github_lt: String
+
+  """All values less than or equal the given value."""
+  github_lte: String
+
+  """All values greater than the given value."""
+  github_gt: String
+
+  """All values greater than or equal the given value."""
+  github_gte: String
+
+  """All values containing the given string."""
+  github_contains: String
+
+  """All values not containing the given string."""
+  github_not_contains: String
+
+  """All values starting with the given string."""
+  github_starts_with: String
+
+  """All values not starting with the given string."""
+  github_not_starts_with: String
+
+  """All values ending with the given string."""
+  github_ends_with: String
+
+  """All values not ending with the given string."""
+  github_not_ends_with: String
+}
+
+input SpeakerWhereUniqueInput {
+  name: String
+}
+
+type Subscription {
+  video(where: VideoSubscriptionWhereInput): VideoSubscriptionPayload
+  speaker(where: SpeakerSubscriptionWhereInput): SpeakerSubscriptionPayload
+  technology(where: TechnologySubscriptionWhereInput): TechnologySubscriptionPayload
+  event(where: EventSubscriptionWhereInput): EventSubscriptionPayload
+}
+
+type Technology {
+  name: String!
+  title: String!
+}
+
+"""A connection to a list of items."""
+type TechnologyConnection {
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """A list of edges."""
+  edges: [TechnologyEdge]!
+  aggregate: AggregateTechnology!
+}
+
+input TechnologyCreateInput {
+  name: String!
+  title: String!
+}
+
+input TechnologyCreateManyInput {
+  create: [TechnologyCreateInput!]
+  connect: [TechnologyWhereUniqueInput!]
+}
+
+"""An edge in a connection."""
+type TechnologyEdge {
+  """The item at the end of the edge."""
+  node: Technology!
+
+  """A cursor for use in pagination."""
+  cursor: String!
+}
+
+enum TechnologyOrderByInput {
+  name_ASC
+  name_DESC
+  title_ASC
+  title_DESC
+  id_ASC
+  id_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  createdAt_ASC
+  createdAt_DESC
+}
+
+type TechnologyPreviousValues {
+  name: String!
+  title: String!
+}
+
+type TechnologySubscriptionPayload {
+  mutation: MutationType!
+  node: Technology
+  updatedFields: [String!]
+  previousValues: TechnologyPreviousValues
+}
+
+input TechnologySubscriptionWhereInput {
+  """Logical AND on all given filters."""
+  AND: [TechnologySubscriptionWhereInput!]
+
+  """Logical OR on all given filters."""
+  OR: [TechnologySubscriptionWhereInput!]
+
+  """Logical NOT on all given filters combined by AND."""
+  NOT: [TechnologySubscriptionWhereInput!]
+
+  """
+  The subscription event gets dispatched when it's listed in mutation_in
+  """
+  mutation_in: [MutationType!]
+
+  """
+  The subscription event gets only dispatched when one of the updated fields names is included in this list
+  """
+  updatedFields_contains: String
+
+  """
+  The subscription event gets only dispatched when all of the field names included in this list have been updated
+  """
+  updatedFields_contains_every: [String!]
+
+  """
+  The subscription event gets only dispatched when some of the field names included in this list have been updated
+  """
+  updatedFields_contains_some: [String!]
+  node: TechnologyWhereInput
+}
+
+input TechnologyUpdateDataInput {
+  name: String
+  title: String
+}
+
+input TechnologyUpdateInput {
+  name: String
+  title: String
+}
+
+input TechnologyUpdateManyInput {
+  create: [TechnologyCreateInput!]
+  connect: [TechnologyWhereUniqueInput!]
+  disconnect: [TechnologyWhereUniqueInput!]
+  delete: [TechnologyWhereUniqueInput!]
+  update: [TechnologyUpdateWithWhereUniqueNestedInput!]
+  upsert: [TechnologyUpsertWithWhereUniqueNestedInput!]
+}
+
+input TechnologyUpdateWithWhereUniqueNestedInput {
+  where: TechnologyWhereUniqueInput!
+  data: TechnologyUpdateDataInput!
+}
+
+input TechnologyUpsertWithWhereUniqueNestedInput {
+  where: TechnologyWhereUniqueInput!
+  update: TechnologyUpdateDataInput!
+  create: TechnologyCreateInput!
+}
+
+input TechnologyWhereInput {
+  """Logical AND on all given filters."""
+  AND: [TechnologyWhereInput!]
+
+  """Logical OR on all given filters."""
+  OR: [TechnologyWhereInput!]
+
+  """Logical NOT on all given filters combined by AND."""
+  NOT: [TechnologyWhereInput!]
+  name: String
+
+  """All values that are not equal to given value."""
+  name_not: String
+
+  """All values that are contained in given list."""
+  name_in: [String!]
+
+  """All values that are not contained in given list."""
+  name_not_in: [String!]
+
+  """All values less than the given value."""
+  name_lt: String
+
+  """All values less than or equal the given value."""
+  name_lte: String
+
+  """All values greater than the given value."""
+  name_gt: String
+
+  """All values greater than or equal the given value."""
+  name_gte: String
+
+  """All values containing the given string."""
+  name_contains: String
+
+  """All values not containing the given string."""
+  name_not_contains: String
+
+  """All values starting with the given string."""
+  name_starts_with: String
+
+  """All values not starting with the given string."""
+  name_not_starts_with: String
+
+  """All values ending with the given string."""
+  name_ends_with: String
+
+  """All values not ending with the given string."""
+  name_not_ends_with: String
+  title: String
+
+  """All values that are not equal to given value."""
+  title_not: String
+
+  """All values that are contained in given list."""
+  title_in: [String!]
+
+  """All values that are not contained in given list."""
+  title_not_in: [String!]
+
+  """All values less than the given value."""
+  title_lt: String
+
+  """All values less than or equal the given value."""
+  title_lte: String
+
+  """All values greater than the given value."""
+  title_gt: String
+
+  """All values greater than or equal the given value."""
+  title_gte: String
+
+  """All values containing the given string."""
+  title_contains: String
+
+  """All values not containing the given string."""
+  title_not_contains: String
+
+  """All values starting with the given string."""
+  title_starts_with: String
+
+  """All values not starting with the given string."""
+  title_not_starts_with: String
+
+  """All values ending with the given string."""
+  title_ends_with: String
+
+  """All values not ending with the given string."""
+  title_not_ends_with: String
+}
+
+input TechnologyWhereUniqueInput {
+  name: String
+}
+
+type Video {
+  name: String!
+  title: String!
+  source: String!
+  duration: String
+  date: String
+  description: String
+  speaker(where: SpeakerWhereInput): Speaker!
+  technologies(where: TechnologyWhereInput, orderBy: TechnologyOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Technology!]
+  event(where: EventWhereInput): Event!
+}
+
+"""A connection to a list of items."""
+type VideoConnection {
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """A list of edges."""
+  edges: [VideoEdge]!
+  aggregate: AggregateVideo!
+}
+
+input VideoCreateInput {
+  name: String!
+  title: String!
+  source: String!
+  duration: String
+  date: String
+  description: String
+  speaker: SpeakerCreateOneInput!
+  technologies: TechnologyCreateManyInput
+  event: EventCreateOneInput!
+}
+
+"""An edge in a connection."""
+type VideoEdge {
+  """The item at the end of the edge."""
+  node: Video!
+
+  """A cursor for use in pagination."""
+  cursor: String!
+}
+
+enum VideoOrderByInput {
+  name_ASC
+  name_DESC
+  title_ASC
+  title_DESC
+  source_ASC
+  source_DESC
+  duration_ASC
+  duration_DESC
+  date_ASC
+  date_DESC
+  description_ASC
+  description_DESC
+  id_ASC
+  id_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  createdAt_ASC
+  createdAt_DESC
+}
+
+type VideoPreviousValues {
+  name: String!
+  title: String!
+  source: String!
+  duration: String
+  date: String
+  description: String
+}
+
+type VideoSubscriptionPayload {
+  mutation: MutationType!
+  node: Video
+  updatedFields: [String!]
+  previousValues: VideoPreviousValues
+}
+
+input VideoSubscriptionWhereInput {
+  """Logical AND on all given filters."""
+  AND: [VideoSubscriptionWhereInput!]
+
+  """Logical OR on all given filters."""
+  OR: [VideoSubscriptionWhereInput!]
+
+  """Logical NOT on all given filters combined by AND."""
+  NOT: [VideoSubscriptionWhereInput!]
+
+  """
+  The subscription event gets dispatched when it's listed in mutation_in
+  """
+  mutation_in: [MutationType!]
+
+  """
+  The subscription event gets only dispatched when one of the updated fields names is included in this list
+  """
+  updatedFields_contains: String
+
+  """
+  The subscription event gets only dispatched when all of the field names included in this list have been updated
+  """
+  updatedFields_contains_every: [String!]
+
+  """
+  The subscription event gets only dispatched when some of the field names included in this list have been updated
+  """
+  updatedFields_contains_some: [String!]
+  node: VideoWhereInput
+}
+
+input VideoUpdateInput {
+  name: String
+  title: String
+  source: String
+  duration: String
+  date: String
+  description: String
+  speaker: SpeakerUpdateOneInput
+  technologies: TechnologyUpdateManyInput
+  event: EventUpdateOneInput
+}
+
+input VideoWhereInput {
+  """Logical AND on all given filters."""
+  AND: [VideoWhereInput!]
+
+  """Logical OR on all given filters."""
+  OR: [VideoWhereInput!]
+
+  """Logical NOT on all given filters combined by AND."""
+  NOT: [VideoWhereInput!]
+  name: String
+
+  """All values that are not equal to given value."""
+  name_not: String
+
+  """All values that are contained in given list."""
+  name_in: [String!]
+
+  """All values that are not contained in given list."""
+  name_not_in: [String!]
+
+  """All values less than the given value."""
+  name_lt: String
+
+  """All values less than or equal the given value."""
+  name_lte: String
+
+  """All values greater than the given value."""
+  name_gt: String
+
+  """All values greater than or equal the given value."""
+  name_gte: String
+
+  """All values containing the given string."""
+  name_contains: String
+
+  """All values not containing the given string."""
+  name_not_contains: String
+
+  """All values starting with the given string."""
+  name_starts_with: String
+
+  """All values not starting with the given string."""
+  name_not_starts_with: String
+
+  """All values ending with the given string."""
+  name_ends_with: String
+
+  """All values not ending with the given string."""
+  name_not_ends_with: String
+  title: String
+
+  """All values that are not equal to given value."""
+  title_not: String
+
+  """All values that are contained in given list."""
+  title_in: [String!]
+
+  """All values that are not contained in given list."""
+  title_not_in: [String!]
+
+  """All values less than the given value."""
+  title_lt: String
+
+  """All values less than or equal the given value."""
+  title_lte: String
+
+  """All values greater than the given value."""
+  title_gt: String
+
+  """All values greater than or equal the given value."""
+  title_gte: String
+
+  """All values containing the given string."""
+  title_contains: String
+
+  """All values not containing the given string."""
+  title_not_contains: String
+
+  """All values starting with the given string."""
+  title_starts_with: String
+
+  """All values not starting with the given string."""
+  title_not_starts_with: String
+
+  """All values ending with the given string."""
+  title_ends_with: String
+
+  """All values not ending with the given string."""
+  title_not_ends_with: String
+  source: String
+
+  """All values that are not equal to given value."""
+  source_not: String
+
+  """All values that are contained in given list."""
+  source_in: [String!]
+
+  """All values that are not contained in given list."""
+  source_not_in: [String!]
+
+  """All values less than the given value."""
+  source_lt: String
+
+  """All values less than or equal the given value."""
+  source_lte: String
+
+  """All values greater than the given value."""
+  source_gt: String
+
+  """All values greater than or equal the given value."""
+  source_gte: String
+
+  """All values containing the given string."""
+  source_contains: String
+
+  """All values not containing the given string."""
+  source_not_contains: String
+
+  """All values starting with the given string."""
+  source_starts_with: String
+
+  """All values not starting with the given string."""
+  source_not_starts_with: String
+
+  """All values ending with the given string."""
+  source_ends_with: String
+
+  """All values not ending with the given string."""
+  source_not_ends_with: String
+  duration: String
+
+  """All values that are not equal to given value."""
+  duration_not: String
+
+  """All values that are contained in given list."""
+  duration_in: [String!]
+
+  """All values that are not contained in given list."""
+  duration_not_in: [String!]
+
+  """All values less than the given value."""
+  duration_lt: String
+
+  """All values less than or equal the given value."""
+  duration_lte: String
+
+  """All values greater than the given value."""
+  duration_gt: String
+
+  """All values greater than or equal the given value."""
+  duration_gte: String
+
+  """All values containing the given string."""
+  duration_contains: String
+
+  """All values not containing the given string."""
+  duration_not_contains: String
+
+  """All values starting with the given string."""
+  duration_starts_with: String
+
+  """All values not starting with the given string."""
+  duration_not_starts_with: String
+
+  """All values ending with the given string."""
+  duration_ends_with: String
+
+  """All values not ending with the given string."""
+  duration_not_ends_with: String
+  date: String
+
+  """All values that are not equal to given value."""
+  date_not: String
+
+  """All values that are contained in given list."""
+  date_in: [String!]
+
+  """All values that are not contained in given list."""
+  date_not_in: [String!]
+
+  """All values less than the given value."""
+  date_lt: String
+
+  """All values less than or equal the given value."""
+  date_lte: String
+
+  """All values greater than the given value."""
+  date_gt: String
+
+  """All values greater than or equal the given value."""
+  date_gte: String
+
+  """All values containing the given string."""
+  date_contains: String
+
+  """All values not containing the given string."""
+  date_not_contains: String
+
+  """All values starting with the given string."""
+  date_starts_with: String
+
+  """All values not starting with the given string."""
+  date_not_starts_with: String
+
+  """All values ending with the given string."""
+  date_ends_with: String
+
+  """All values not ending with the given string."""
+  date_not_ends_with: String
+  description: String
+
+  """All values that are not equal to given value."""
+  description_not: String
+
+  """All values that are contained in given list."""
+  description_in: [String!]
+
+  """All values that are not contained in given list."""
+  description_not_in: [String!]
+
+  """All values less than the given value."""
+  description_lt: String
+
+  """All values less than or equal the given value."""
+  description_lte: String
+
+  """All values greater than the given value."""
+  description_gt: String
+
+  """All values greater than or equal the given value."""
+  description_gte: String
+
+  """All values containing the given string."""
+  description_contains: String
+
+  """All values not containing the given string."""
+  description_not_contains: String
+
+  """All values starting with the given string."""
+  description_starts_with: String
+
+  """All values not starting with the given string."""
+  description_not_starts_with: String
+
+  """All values ending with the given string."""
+  description_ends_with: String
+
+  """All values not ending with the given string."""
+  description_not_ends_with: String
+  speaker: SpeakerWhereInput
+  technologies_every: TechnologyWhereInput
+  technologies_some: TechnologyWhereInput
+  technologies_none: TechnologyWhereInput
+  event: EventWhereInput
+}
+
+input VideoWhereUniqueInput {
+  name: String
+}
