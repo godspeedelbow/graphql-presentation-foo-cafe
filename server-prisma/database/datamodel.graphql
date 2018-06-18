@@ -1,0 +1,32 @@
+type Video {
+  name: String! @unique
+  title: String!
+  source: String!
+  duration: String
+  date: String
+  description: String
+
+  speaker: Speaker!
+  technologies: [Technology!]!
+  event: Event!
+}
+
+type Speaker {
+  name: String! @unique
+  fullName: String
+  image: String
+  twitter: String
+  github: String
+}
+
+type Technology {
+  name: String! @unique
+  title: String!
+}
+
+type Event {
+  name: String! @unique
+  title: String!
+  website: String
+  logo: String
+}
