@@ -17,7 +17,7 @@ module.exports = {
   },
 };
 
-const REST_API_BASE_URL = 'http://localhost:4000';
+const REST_API_BASE_URL = 'http://localhost:5000';
 function get(path) {
   return fetch(`${REST_API_BASE_URL}/${path}`)
     .then(res => res.json());

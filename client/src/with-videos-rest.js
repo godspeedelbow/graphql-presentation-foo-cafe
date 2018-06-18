@@ -41,7 +41,7 @@ const withVideosRest = compose(
 
 export default withVideosRest;
 
-const REST_API_BASE_URL = '//localhost:4000';
+const REST_API_BASE_URL = '//localhost:5000';
 function get(path) {
   return fetch(`${REST_API_BASE_URL}/${path}`).then(res => res.json());
 }

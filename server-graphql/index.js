@@ -23,7 +23,7 @@ app.use(
   })
 );
 
-const PORT = 5000;
+const PORT = 4000;
 
 app.listen(PORT, function() {
   console.log(`GraphQL server running at http://localhost:${PORT}/graphql`);
