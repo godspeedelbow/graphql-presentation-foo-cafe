@@ -3,26 +3,28 @@ const express = require("express");
 const graphqlHTTP = require("express-graphql");
 const { makeExecutableSchema } = require("graphql-tools");
 
-// 1. Define schema
+// 1. Define types
 const typeDefs = `
   type Query {
     ip: String!
   }
 `;
 
+// 2. Define resolvers
 const resolvers = {
   Query: {
     ip: () => publicIp.v4(),
   },
 };
 
+// 3. Combine into a schema
 const schema = makeExecutableSchema({
   typeDefs,
   resolvers,
 });
 
 
-// 2. Start server
+// 4. Start server
 const app = express();
 
 app.use(
