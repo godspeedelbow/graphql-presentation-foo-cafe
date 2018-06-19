@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "ip-demo": "cd graphql-ip-demo && yarn start",
     "start-client": "cd client && yarn start",
     "start-server": "npm-run-all --parallel server-graphql server-rest",
     "start-prisma": "npm-run-all --parallel server-prisma",
