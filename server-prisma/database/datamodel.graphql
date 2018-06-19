@@ -1,3 +1,6 @@
+# More info on data modelling in Prisma:
+# https://www.prisma.io/docs/reference/service-configuration/data-modelling-(sdl)-eiroozae8u#the-@relation-directive
+
 type Video {
   name: String! @unique
   title: String!

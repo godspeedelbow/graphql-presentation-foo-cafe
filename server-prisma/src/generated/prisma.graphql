@@ -1,5 +1,5 @@
 # source: https://eu1.prisma.sh/eelke-boezeman-014aeb/server-prisma/dev
-# timestamp: Mon Jun 18 2018 10:00:18 GMT+0200 (CEST)
+# timestamp: Tue Jun 19 2018 19:37:44 GMT+0200 (CEST)
 
 type AggregateEvent {
   count: Int!
@@ -319,6 +319,9 @@ input EventWhereInput {
 
   """All values not ending with the given string."""
   logo_not_ends_with: String
+  _MagicalBackRelation_EventToVideo_every: VideoWhereInput
+  _MagicalBackRelation_EventToVideo_some: VideoWhereInput
+  _MagicalBackRelation_EventToVideo_none: VideoWhereInput
 }
 
 input EventWhereUniqueInput {
@@ -333,29 +336,29 @@ scalar Long
 
 type Mutation {
   createVideo(data: VideoCreateInput!): Video!
-  createSpeaker(data: SpeakerCreateInput!): Speaker!
   createTechnology(data: TechnologyCreateInput!): Technology!
   createEvent(data: EventCreateInput!): Event!
+  createSpeaker(data: SpeakerCreateInput!): Speaker!
   updateVideo(data: VideoUpdateInput!, where: VideoWhereUniqueInput!): Video
-  updateSpeaker(data: SpeakerUpdateInput!, where: SpeakerWhereUniqueInput!): Speaker
   updateTechnology(data: TechnologyUpdateInput!, where: TechnologyWhereUniqueInput!): Technology
   updateEvent(data: EventUpdateInput!, where: EventWhereUniqueInput!): Event
+  updateSpeaker(data: SpeakerUpdateInput!, where: SpeakerWhereUniqueInput!): Speaker
   deleteVideo(where: VideoWhereUniqueInput!): Video
-  deleteSpeaker(where: SpeakerWhereUniqueInput!): Speaker
   deleteTechnology(where: TechnologyWhereUniqueInput!): Technology
   deleteEvent(where: EventWhereUniqueInput!): Event
+  deleteSpeaker(where: SpeakerWhereUniqueInput!): Speaker
   upsertVideo(where: VideoWhereUniqueInput!, create: VideoCreateInput!, update: VideoUpdateInput!): Video!
-  upsertSpeaker(where: SpeakerWhereUniqueInput!, create: SpeakerCreateInput!, update: SpeakerUpdateInput!): Speaker!
   upsertTechnology(where: TechnologyWhereUniqueInput!, create: TechnologyCreateInput!, update: TechnologyUpdateInput!): Technology!
   upsertEvent(where: EventWhereUniqueInput!, create: EventCreateInput!, update: EventUpdateInput!): Event!
+  upsertSpeaker(where: SpeakerWhereUniqueInput!, create: SpeakerCreateInput!, update: SpeakerUpdateInput!): Speaker!
   updateManyVideos(data: VideoUpdateInput!, where: VideoWhereInput): BatchPayload!
-  updateManySpeakers(data: SpeakerUpdateInput!, where: SpeakerWhereInput): BatchPayload!
   updateManyTechnologies(data: TechnologyUpdateInput!, where: TechnologyWhereInput): BatchPayload!
   updateManyEvents(data: EventUpdateInput!, where: EventWhereInput): BatchPayload!
+  updateManySpeakers(data: SpeakerUpdateInput!, where: SpeakerWhereInput): BatchPayload!
   deleteManyVideos(where: VideoWhereInput): BatchPayload!
-  deleteManySpeakers(where: SpeakerWhereInput): BatchPayload!
   deleteManyTechnologies(where: TechnologyWhereInput): BatchPayload!
   deleteManyEvents(where: EventWhereInput): BatchPayload!
+  deleteManySpeakers(where: SpeakerWhereInput): BatchPayload!
 }
 
 enum MutationType {
@@ -387,17 +390,17 @@ type PageInfo {
 
 type Query {
   videos(where: VideoWhereInput, orderBy: VideoOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Video]!
-  speakers(where: SpeakerWhereInput, orderBy: SpeakerOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Speaker]!
   technologies(where: TechnologyWhereInput, orderBy: TechnologyOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Technology]!
   events(where: EventWhereInput, orderBy: EventOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Event]!
+  speakers(where: SpeakerWhereInput, orderBy: SpeakerOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Speaker]!
   video(where: VideoWhereUniqueInput!): Video
-  speaker(where: SpeakerWhereUniqueInput!): Speaker
   technology(where: TechnologyWhereUniqueInput!): Technology
   event(where: EventWhereUniqueInput!): Event
+  speaker(where: SpeakerWhereUniqueInput!): Speaker
   videosConnection(where: VideoWhereInput, orderBy: VideoOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): VideoConnection!
-  speakersConnection(where: SpeakerWhereInput, orderBy: SpeakerOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): SpeakerConnection!
   technologiesConnection(where: TechnologyWhereInput, orderBy: TechnologyOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): TechnologyConnection!
   eventsConnection(where: EventWhereInput, orderBy: EventOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): EventConnection!
+  speakersConnection(where: SpeakerWhereInput, orderBy: SpeakerOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): SpeakerConnection!
 
   """Fetches an object given its ID"""
   node(
@@ -750,6 +753,9 @@ input SpeakerWhereInput {
 
   """All values not ending with the given string."""
   github_not_ends_with: String
+  _MagicalBackRelation_SpeakerToVideo_every: VideoWhereInput
+  _MagicalBackRelation_SpeakerToVideo_some: VideoWhereInput
+  _MagicalBackRelation_SpeakerToVideo_none: VideoWhereInput
 }
 
 input SpeakerWhereUniqueInput {
@@ -758,9 +764,9 @@ input SpeakerWhereUniqueInput {
 
 type Subscription {
   video(where: VideoSubscriptionWhereInput): VideoSubscriptionPayload
-  speaker(where: SpeakerSubscriptionWhereInput): SpeakerSubscriptionPayload
   technology(where: TechnologySubscriptionWhereInput): TechnologySubscriptionPayload
   event(where: EventSubscriptionWhereInput): EventSubscriptionPayload
+  speaker(where: SpeakerSubscriptionWhereInput): SpeakerSubscriptionPayload
 }
 
 type Technology {
@@ -973,6 +979,9 @@ input TechnologyWhereInput {
 
   """All values not ending with the given string."""
   title_not_ends_with: String
+  _MagicalBackRelation_TechnologyToVideo_every: VideoWhereInput
+  _MagicalBackRelation_TechnologyToVideo_some: VideoWhereInput
+  _MagicalBackRelation_TechnologyToVideo_none: VideoWhereInput
 }
 
 input TechnologyWhereUniqueInput {
