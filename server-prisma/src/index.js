@@ -1,5 +1,6 @@
 const { Prisma } = require('prisma-binding')
 
+// prisma-bindings: https://github.com/prismagraphql/prisma-binding#example
 const db = new Prisma({
   typeDefs: 'src/generated/prisma.graphql', // the auto-generated GraphQL schema of the Prisma API
   endpoint: process.env.PRISMA_ENDPOINT, // the endpoint of the Prisma API (value set in `.env`)
