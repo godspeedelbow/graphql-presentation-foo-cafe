@@ -4,12 +4,14 @@
     "start": "nodemon -e js,graphql -x node -r dotenv/config src/index.js",
     "debug": "nodemon -e js,graphql -x node --inspect -r dotenv/config src/index.js",
     "playground": "graphql playground --port 4001",
-    "dev": "npm-run-all --parallel start playground"
+    "dev": "npm-run-all --parallel start playground",
+    "start-auth": "nodemon -e js,graphql -x node -r dotenv/config src/index-auth.js",
+    "dev-auth": "npm-run-all --parallel start-auth playground"
   },
   "dependencies": {
-    "bcryptjs": "2.4.3",
+    "bcryptjs": "^2.4.3",
     "graphql-yoga": "1.14.8",
-    "jsonwebtoken": "8.3.0",
+    "jsonwebtoken": "^8.3.0",
     "prisma-binding": "2.1.0"
   },
   "devDependencies": {
