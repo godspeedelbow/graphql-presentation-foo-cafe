@@ -1,6 +1,6 @@
 const { Prisma } = require('prisma-binding')
 
-// prisma-bindings: https://github.com/prismagraphql/prisma-binding#example
+// prisma-binding: https://github.com/prismagraphql/prisma-binding#example
 const db = new Prisma({
   typeDefs: 'src/generated/prisma.graphql', // the auto-generated GraphQL schema of the Prisma API
   endpoint: process.env.PRISMA_ENDPOINT, // the endpoint of the Prisma API (value set in `.env`)
@@ -8,7 +8,9 @@ const db = new Prisma({
   // debug: true, // log all GraphQL queries & mutations sent to the Prisma API
 })
 
-db.query.videos(null, '{ name }').then(console.log);
+db.query.videos(null, '{ name }').then(
+  data => console.log(JSON.stringify(data, null, 2))
+);
 
 // const { GraphQLServer } = require('graphql-yoga')
 // const resolvers = {
